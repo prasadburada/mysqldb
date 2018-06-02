@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>emp-list</title>
+    <style type="text/css">
+        tr:nth-child(even){
+        background-color : #f2f2f2
+        }
+        th{
+        background-color : black;
+        color : white;
+        padding : 3px;
+        }
+        td{
+        padding-top : 5px;
+        padding-botton : 5px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">ONLINE EMPLOYEE MANAGEMENT SYSTEM</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="home">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Employees<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="addemp">add employee</a></li>
+          <li><a href="emplist">view employees</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Department<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="add-dept">add department</a></li>
+          <li><a href="deptlist">view departments</a></li>
+        </ul>
+      </li>
+      <li><a href="admin_profile">Profile</a></li>
+      <li><a href="change_pwd">Change Password</a></li>
+      <li><a href="logout">Logout</a></li>
+    </ul>
+    <!--<ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>-->
+  </div>
+</nav>
+<h2 align="center">EMPLOYEES LIST</h2>
+<table class="table table-border" width="100%">
+    <tr align="left">
+        <th>Fullname</th>
+        <th>Empid</th>
+        <th>Gen</th>
+        <th>Ph. Number</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Designation</th>
+        <th>Update</th>
+        <th>Remove</th>
+    </tr>
+    {% for data in empdata %}
+        <tr>
+            <td>{{data.fullname}}</td>
+            <td>{{data.empid}}</td>
+            <td>{{data.gender}}</td>
+            <td>{{data.phone_number}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.department}}</td>
+            <td>{{data.designation}}</td>
+            <td><a href="{% url 'emp_edit' data.empid %}">edit</a></td>
+            <td><a href="{% url 'del_emp' data.empid %}">remove</a></td>
+        </tr>
+    {% endfor %}
+    <!--{% for d in data %}
+        <tr>
+            {% for ed in d %}
+                <td style="padding:5px; left-padding:2px;">{{ ed }}</td>
+            {% endfor %}
+            <td><a href="">update</a></td>
+        </tr>
+    {% endfor %}-->
+</table>
+</body>
+</html>
