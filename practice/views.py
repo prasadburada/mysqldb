@@ -25,6 +25,7 @@ def index(request):
     else:
         message = 'invaid username or password'
         return render(request, 'login.html', {'message': message})'''
+    # db = MySQLdb.connect("localhost", "root", "newrootpassword", "employees")
     db=MySQLdb.connect("localhost","root","newrootpassword","employees")
     cursor=db.cursor()
     sqlcmd="select count(*) from admin_oems where username='"+username+"' and password='"+password+"'"

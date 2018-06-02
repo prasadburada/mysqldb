@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9lg^1p3o%=s$l_xaxnfx0@+k)4t90g@mypd+52!3@@qcep6%^k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['prasad1722.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'mysqldb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prasad1722$employees',
-        'USER':'prasad1722',
-        'PASSWORD':'qwertyuiop',
-        'HOST':'prasad1722.mysql.pythonanywhere-services.com',
+        'NAME': 'employees',
+        'USER':'root',
+        'PASSWORD':'newrootpassword',
+        'HOST':'localhost',
         'PORT':'3306'
     }
 }
